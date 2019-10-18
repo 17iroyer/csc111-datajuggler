@@ -1,0 +1,79 @@
+Project 2: Stack & Queue ADT Juggler
+Programmer: Ian Royer
+Course: CSC111
+Professor: Dr. Lee
+
+***Documentation***
+
+Project Description: This program creates two stacks and two queues. Commands are then read
+from a document entered in the command line. Based on the commands, values are added to a
+stack (inStack) and queue (inQueue). WHen a delete command is read, values are
+popped/dequeued from the original structures, and entered into different structures. Values from
+inStack are entered into outQueue, and values from inQueue are entered into outStack. When the
+end of the file is reached, outQueue and outStack are emptied and the values within are printed.
+
+Functions: print_stack and print_queue both print out the contents of the respective memory
+structures as the contents are removed from the structure.
+
+Algorithm:
+1. Open the desired file
+   a. A file is read from the command line
+   b. The file is attempted to be opened
+      i. If opening fails, an error message is printed and the program ends
+2. The four main structures are made
+   a. inStack, outStack, inQueue, outQueue are made
+3. Read from file until the end of file marker is reached
+   a. If command is "add" followed by a number
+      i. Return to the beginning of the command, and fscanf for an integer
+      iare made
+   b. inStack, outStack, inQueue, outQueue are made
+3. Read from file until the end of file marker is reached
+   a. If command is "add" followed by a number
+      i. Return to the beginning of the command, and fscanf for an integer
+      ii. Integer is added to both "in-structures"
+   b. If command is "delete"
+      i. Pop value from inStack, and enqueue it into outQueue
+      ii. Dequeue value from inQueue, and pushed into outStack
+   c. If the command is neither delete or add
+      i. An error message is printed, and the program ends
+4. Print out the values from "out-structures"
+   a. While outStack is not empty
+      i. Pop values from it, and print them out in a line
+   b. While outQueue is not empty
+      i. Dequeue values from it, and print them out in a line
+
+Analysis of Algorithm:
+Input: Test.dat: add 3
+                 delete
+                 add 2
+                 delete
+Output: outStack: 2 3
+        outQueue: 3 2
+Algorithm:
+1. Test.dat is attempted to be opened
+2. add 3 is read
+   a. Check if the command is "add"
+      i. Move to the beginning of the line again and read the 3 with fscanf
+3. delete is read
+   a. Check if the command is "add"
+   b. Check if the command is "delete"
+      i. Pop value (3) from inStack and enqueue it in outQueue (now contains 3)
+      ii. Dequeue value (3) from inQueue and push it in outStack (now contains 3)
+4. add 2 is read
+   a. Check if the command is "add"
+      i. Move to the beginning of the line again and read the 2 with fscanf
+5. delete is read
+   a. Check if the command is "add"
+   b. Check if the command is "delete"
+      i. Pop value (2) from inStack, enqueue it in outQueue (now contains 3, 2)
+      ii. Dequeue value (2) from inQueue, and push it in outStack (now contains 2, 3)
+6. End of file marker is reached
+7. The funtion print_stack is used to print the contents in outStack as they are removed
+8. The funtion print_queue is used to print the contents in outQueue as they are removed
+9. Close the file (test.dat)
+
+Conclusion: Overall, I feel like my program can handle nearly all situations. Instead of breaking
+like my first project when an error is reached, I took care to add securities to terminate the
+program if something goes wrong. The way commands are read from the file allow for
+commands to be all on the same line as well as extra lines in between commands, according to
+my testing.

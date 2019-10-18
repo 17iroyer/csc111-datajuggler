@@ -1,0 +1,36 @@
+Project 2: Stack and Queue ADT Juggler
+Programmer: Ian Royer
+Course: CSC111
+Professor: Dr. Lee
+
+***Read me***
+Info: This program reads commands from a file that is entered in the command line. The values from the file are added to a
+Stack and Queue. When a value is removed from the Stack and Queue, they are entered into an outQueue and outStack, respectively
+
+Language: C
+
+Platform: Sloop
+
+Files Included: sqjuggler.c
+                sqjuggler.h
+                stackADT.c
+                stackADT.h
+                queueADT.c
+                queueADT.h
+Supplement: readme
+            documentation
+            makefile
+
+How to compile: type "make sqjuggler"
+
+How to run: after compiling, type "./sqjuggler " followed by the desired input file name
+
+Known Bugs: -the commands from test.dat must be typed exactly as shown:
+                         -> to add, type "add #" where # is the desired value.
+                         -> to delete, type "delete"
+                         -> any misspelling will result in an error
+            -the commands from test.dat are case sensitive, only lowercase commands will work
+            -if no number is included after the add command, the previous number will be added again
+                         -> add 5
+                            add
+                            results in the number 5 being added twice 
